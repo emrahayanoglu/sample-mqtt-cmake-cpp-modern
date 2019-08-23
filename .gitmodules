@@ -4,3 +4,6 @@
 [submodule "third-party/spdlog"]
 	path = third-party/spdlog
 	url = git@github.com:gabime/spdlog.git
+[submodule "third-party/mqtt-paho-cpp"]
+	path = third-party/mqtt-paho-cpp
+	url = git@github.com:eclipse/paho.mqtt.cpp.git
