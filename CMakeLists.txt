@@ -5,6 +5,9 @@ project(sample-mqtt-project)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Check if PahoMqttC exists
+find_package(PahoMqttCpp REQUIRED)
+
 # nlohmann-json <section starts>
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(third-party/nlohmann-json)
