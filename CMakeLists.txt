@@ -20,14 +20,6 @@ add_subdirectory(third-party/nlohmann-json)
 add_subdirectory(third-party/spdlog)
 # spdlog <section ends>
 
-# yaml-cpp <section starts>
-#set(YAML_CPP_BUILD_TESTS OFF CACHE BOOL "disable yaml tests")
-#set(YAML_CPP_BUILD_TOOLS OFF CACHE BOOL "disable yaml tools")
-#set(YAML_CPP_BUILD_CONTRIB OFF CACHE BOOL "disable yaml contrib")
-#add_subdirectory(third-party/yaml-cpp)
-# yaml-cpp <section ends>
-
-
 file(GLOB SOURCES "src/*.cc" "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
