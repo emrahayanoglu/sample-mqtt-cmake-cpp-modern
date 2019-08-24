@@ -8,6 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Check if PahoMqttC exists
 find_package(PahoMqttCpp REQUIRED)
 
+# Check if yaml-cpp exists
+find_package(yaml-cpp REQUIRED)
+
 # nlohmann-json <section starts>
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(third-party/nlohmann-json)
@@ -17,6 +20,13 @@ add_subdirectory(third-party/nlohmann-json)
 add_subdirectory(third-party/spdlog)
 # spdlog <section ends>
 
+# yaml-cpp <section starts>
+#set(YAML_CPP_BUILD_TESTS OFF CACHE BOOL "disable yaml tests")
+#set(YAML_CPP_BUILD_TOOLS OFF CACHE BOOL "disable yaml tools")
+#set(YAML_CPP_BUILD_CONTRIB OFF CACHE BOOL "disable yaml contrib")
+#add_subdirectory(third-party/yaml-cpp)
+# yaml-cpp <section ends>
+
 
 file(GLOB SOURCES "src/*.cc" "src/*.cpp")
 
@@ -25,3 +35,5 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include)
 target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog)
+target_link_libraries(${PROJECT_NAME} PRIVATE yaml-cpp)
+target_link_libraries(${PROJECT_NAME} PRIVATE PahoMqttCpp::paho-mqttpp3)
