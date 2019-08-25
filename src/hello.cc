@@ -1,17 +1,22 @@
 #include "hello.h"
+
 #include <iostream>
+#include "log_helper.h"
+
+#include "spdlog/sinks/stdout_color_sinks.h"
 
 Hello::Hello():
 a{10}
 {
-    std::cout << "Initializing the class" << std::endl;
+    _logger = spdlog::stdout_color_mt(__FILENAME__);
+    _logger->info("Initializing the class");
 }
 
 Hello::~Hello()
 {
-    std::cout << "Destructing the class" << std::endl;
+    _logger->info("Destructing the class");
 }
 
 void Hello::sayHello(){
-    std::cout << "Hello " << this->a << std::endl;
+    _logger->info("Hello {}", this->a);
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "spdlog/spdlog.h"
+
 class Hello{
     public:
         Hello();
@@ -8,4 +10,5 @@ class Hello{
         void sayHello();
     private:
         int a;
+        std::shared_ptr<spdlog::logger> _logger;
 };

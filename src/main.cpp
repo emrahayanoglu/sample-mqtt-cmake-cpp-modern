@@ -3,7 +3,6 @@
 #include <string>
 
 #include <nlohmann/json.hpp>
-#include "spdlog/spdlog.h"
 #include "yaml-cpp/yaml.h"
 #include "mqtt/async_client.h"
 
@@ -21,8 +20,6 @@ int main()
     j["pi"] = 3.141;
 
     std::cout << "Pi: " << j.dump() << std::endl;
-
-    spdlog::info("Welcome to spdlog!");
 
     YAML::Node config = YAML::LoadFile("/Users/emrahayanoglu/cpp_workspace/sample-mqtt-project/hello.yaml");
 
